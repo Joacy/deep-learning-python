@@ -77,6 +77,8 @@ for train, test in kfold.split(X, Y):
     model.compile(optimizer='rmsprop', loss='mse', metrics=['mae'])
     model.fit(X[train], Y[train], epochs=10, verbose=1)
 
+y_pred = model.predict(X[test])
+
 mse_value, mae_value = model.evaluate(X[test], Y[test], verbose=0)
 
 print(mse_value)
