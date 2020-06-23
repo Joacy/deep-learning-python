@@ -25,7 +25,7 @@ X=dataset.iloc[:,0:23]
 y=dataset.iloc[:,23:25]
 
 # # Split the data up in train and test sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
 
 # Import `StandardScaler` from `sklearn.preprocessing`
 from sklearn.preprocessing import StandardScaler
@@ -61,7 +61,7 @@ model.compile(loss='mean_squared_error',
               optimizer='adam',
               metrics=['accuracy'])
                    
-model.fit(X_train, y_train,epochs=100, batch_size=1, verbose=1)
+model.fit(X_train, y_train,epochs=100, batch_size=10, verbose=1)
 
 score = model.evaluate(X_test, y_test, verbose=1)
 
